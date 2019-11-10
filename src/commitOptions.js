@@ -31,7 +31,7 @@ module.exports = (parsedParameters) => {
                 //     value = "";
                 // };
                 console.log(value);
-                console.log('property8', property);
+                console.log('property10', property);
                 commitOptions.otherOptions += `${prefix}${property} ${value} `;
             }
         }
