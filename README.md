@@ -14,8 +14,7 @@ Use it to upgrade your package.json version after each commit.
 ```committing -m "message" -l "npm run lintScript && npm run formatScript"```  
 
 pre-commit preset can also be stored into package.json
-```
-{
+```{
 	...
 	"post-commit-auto-versioning": {
 		"pre-commit": "npm run formatting"
