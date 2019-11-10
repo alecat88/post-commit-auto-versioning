@@ -14,7 +14,7 @@ module.exports = (parsedParameters) => {
         commitOptions.commitMessage = `-m "${commitMessageLong}"`;
     }
 
-    let parameterNotToConsider = ['m', 'message', '_'];
+    let parameterNotToConsider = ['m', 'message', '_', 'major', 'minor'];
 
     for (var property in parsedParameters) {
         if (parsedParameters.hasOwnProperty(property)) {

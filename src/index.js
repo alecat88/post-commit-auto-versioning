@@ -12,7 +12,7 @@ let lintCommand =
     typeof parsedParameters.l === "string" ? parsedParameters.l : "node -v"; // -n <componentName> / OPTIONAL
 if (lintCommand !== "node -v") console.log(`'${steps++}) Linting: ${lintCommand}`);
 getAsync(lintCommand).then(() => {
-    console.log(`${steps++} ) Checking untracked files`);
+    console.log(`${steps++}) Checking untracked files`);
     getAsync("git diff-files").then(data => {
         if (data && data[0].length > 0) {
             console.log(
