@@ -20,7 +20,7 @@ module.exports = (parsedParameters) => {
         if (parsedParameters.hasOwnProperty(property)) {
             if (!parameterNotToConsider.includes(property)) {
                 let prefix = "-";
-                let value = `"${parsedParameters[property]}"`;
+                let value = parsedParameters[property] === true ? "" : `"${parsedParameters[property]}"`;
                 if (property.length > 1) {
                     prefix = "--";
                     value = "";
