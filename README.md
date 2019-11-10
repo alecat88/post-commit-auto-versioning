@@ -5,20 +5,18 @@ Use it to upgrade your package.json version after each commit.
 
 
 ## Usage:
-committing will replace git commit command  
-example: ```committing -m "message"```
+```committing``` will replace git commit command  
+```committing -m "message"```
 
-Usage with pre-commit lint command  
-example: ```committing -m "message" -l "npm run format"```  
-example: ```committing -m "message" -l "npm run lint"```  
-example: ```committing -m "message" -l "npm run lint && npm run format"```  
+**Usage with pre-commit lint command**   
+```committing -m "message" -l "npm run lintScript && npm run formatScript"```  
 
-Usage with specific version
-example: ```committing -m "message"```  Default behaviour upgrade "patch" number  
-example: ```committing -m "message" --minor```  
-example: ```committing -m "message" --major```  
+**Usage with specific version**  
+```committing -m "message"```  Default behaviour upgrade "patch" number  
+```committing -m "message" --minor```  
+```committing -m "message" --major```  
 
-Can also accept all other commit default parameters  
+**Can also accept all other commit default parameters**  
 ```git commit
 	   [--dry-run] [(-c | -C | --fixup | --squash) <commit>]
        [-a | --interactive | --patch] [-s] [-v] [-u<mode>] [--amend]
