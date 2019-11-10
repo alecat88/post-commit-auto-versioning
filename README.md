@@ -20,8 +20,7 @@ pre-commit preset can also be stored into package.json
 	"post-commit-auto-versioning": {
 		"pre-commit": "npm run formatting"
 	}
-}
-	```
+}```
 
 **Usage with specific version**  
 ```committing -m "message"```  Default behaviour upgrade "patch" number  
