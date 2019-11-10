@@ -1,0 +1,32 @@
+{
+    "name": "post-commit-auto-versioning",
+    "version": "1.0.0",
+    "description": "node CLI replacement for git commit command with pre-commit linting and post-commit auto-versioning",
+    "main": "./src/index.js",
+    "bin": {
+        "commit": "./src/index.js"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/alecat88/post-commit-auto-versioning.git"
+    },
+    "keywords": [
+        "post-commit",
+        "versioning",
+        "pre-commit"
+    ],
+    "author": "Alessandro Catania",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/alecat88/post-commit-auto-versioning/issues"
+    },
+    "homepage": "https://github.com/alecat88/post-commit-auto-versioning#readme",
+    "dependencies": {
+        "minimist": "^1.2.0",
+        "bluebird": "^3.7.1",
+        "node-cmd": "^3.0.0"
+    }
+}
