@@ -7,7 +7,8 @@
         "commit": "./src/index.js"
     },
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "format": "prettier --write \"src/**/*.{vue,js,css,scss,json}\""
     },
     "repository": {
         "type": "git",
@@ -28,5 +29,8 @@
         "minimist": "^1.2.0",
         "bluebird": "^3.7.1",
         "node-cmd": "^3.0.0"
+    },
+    "devDependencies": {
+        "prettier": "^1.19.1"
     }
 }
