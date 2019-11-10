@@ -4,7 +4,7 @@
     "description": "node CLI replacement for git commit command with pre-commit linting and post-commit auto-versioning",
     "main": "./src/index.js",
     "bin": {
-        "ciaocommit": "./src/index.js"
+        "committing": "./src/index.js"
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
