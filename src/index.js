@@ -33,7 +33,7 @@ getAsync(lintCommand).then(() => {
                         });
                     } else {
                         getAsync("npm version patch").then((data) => {
-                            console.log("Version updated", data);
+                            console.log("Version updated", data[0]);
                         });
                     }
                 });
