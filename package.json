@@ -3,6 +3,7 @@
     "version": "2.2.8",
     "description": "node CLI replacement for git commit command with pre-commit linting and post-commit auto-versioning",
     "main": "./src/index.js",
+    "preferGlobal": true,
     "bin": {
         "committing": "./src/index.js"
     },
