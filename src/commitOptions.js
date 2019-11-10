@@ -1,5 +1,8 @@
 module.exports = (parsedParameters) => {
-    let commitOptions = {};
+    let commitOptions = {
+        otherOptions: ""
+    };
+
     let commitMessage =
         typeof parsedParameters.m === "string" ? parsedParameters.m : undefined; // -m <commit message> / OPTIONAL
     let commitMessageLong =
@@ -13,6 +16,7 @@ module.exports = (parsedParameters) => {
     for (var property in parsedParameters) {
         if (parsedParameters.hasOwnProperty(property)) {
             console.log('property', property);
+            commitOptions.otherOptions += `${property} ${parsedParameters[property]} `;
             // Do things here
         }
     }
