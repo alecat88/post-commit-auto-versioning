@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const cmd = require("node-cmd");
 const Promise = require("bluebird");
 const minimist = require("minimist");
