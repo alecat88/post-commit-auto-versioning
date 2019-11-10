@@ -1,6 +1,7 @@
 module.exports = (parsedParameters) => {
     let commitOptions = {
-        otherOptions: ""
+        otherOptions: "",
+        commitMessage: undefined
     };
 
     let commitMessage =
