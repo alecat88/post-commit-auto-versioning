@@ -5,12 +5,27 @@ const Promise = require("bluebird");
 const minimist = require("minimist");
 const commitOptions = require("./commitOptions");
 
+const finder = require('find-package-json');
+const packageJson = finder().next().value;
+
 const getAsync = Promise.promisify(cmd.get, { multiArgs: true, context: cmd });
 const parsedParameters = minimist(process.argv.slice(2));
 let steps = 1;
-let lintCommand =
-    typeof parsedParameters.l === "string" ? parsedParameters.l : "node -v"; // -n <componentName> / OPTIONAL
+
+//Check lint script
+let lintCommand = "node -v"; //Will be replace if lint script is available
+if (packageJson["post-commit-auto-versioning"] !== undefined) {
+    if (packageJson["post-commit-auto-versioning"]["pre-commit"] !== undefined) {
+        lintCommand = packageJson["post-commit-auto-versioning"]["pre-commit"];
+    }
+}
+if (typeof parsedParameters.l === "string") {
+    console.log('taken from parameter');
+    lintCommand = parsedParameters.l;
+}
 if (lintCommand !== "node -v") console.log(`'${steps++}) Linting: ${lintCommand}`);
+
+//Start
 getAsync(lintCommand).then(() => {
     console.log(`${steps++}) Checking untracked files`);
     getAsync("git diff-files").then(data => {

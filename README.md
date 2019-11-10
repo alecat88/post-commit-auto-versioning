@@ -13,6 +13,16 @@ Use it to upgrade your package.json version after each commit.
 **Usage with pre-commit lint command**   
 ```committing -m "message" -l "npm run lintScript && npm run formatScript"```  
 
+pre-commit preset can also be stored into package.json
+```
+{
+	...
+	"post-commit-auto-versioning": {
+		"pre-commit": "npm run formatting"
+	}
+}
+	```
+
 **Usage with specific version**  
 ```committing -m "message"```  Default behaviour upgrade "patch" number  
 ```committing -m "message" --minor```  
