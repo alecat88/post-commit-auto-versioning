@@ -16,7 +16,7 @@ module.exports = (parsedParameters) => {
     for (var property in parsedParameters) {
         if (parsedParameters.hasOwnProperty(property)) {
             console.log('property', property);
-            commitOptions.otherOptions += `${property} ${parsedParameters[property]} `;
+            commitOptions.otherOptions += `-${property} ${parsedParameters[property]} `;
             // Do things here
         }
     }
