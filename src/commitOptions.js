@@ -22,7 +22,7 @@ module.exports = (parsedParameters) => {
                 if (property.length > 1) {
                     prefix = "--";
                 }
-                console.log('property2', property);
+                console.log('property3', property);
                 commitOptions.otherOptions += `${prefix}${property} "${parsedParameters[property]}"`;
             }
         }
