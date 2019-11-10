@@ -19,11 +19,13 @@ module.exports = (parsedParameters) => {
         if (parsedParameters.hasOwnProperty(property)) {
             if (!parameterNotToConsider.includes(property)) {
                 let prefix = "-";
+                let value = parsedParameters[property];
                 if (property.length > 1) {
                     prefix = "--";
+                    value = "";
                 }
                 console.log('property3', property);
-                commitOptions.otherOptions += `${prefix}${property} "${parsedParameters[property]}"`;
+                commitOptions.otherOptions += `${prefix}${property} "${value}"`;
             }
         }
     }
