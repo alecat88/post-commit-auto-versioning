@@ -24,12 +24,12 @@ getAsync(lintCommand).then(() => {
                 getAsync(`git commit ${options.commitMessage} ${options.otherOptions}`).then(() => {
                     console.log(`${steps++}) committing: git commit ${options.commitMessage} ${options.otherOptions}`);
                     if (parsedParameters.major) {
-                        getAsync("npm version major").then(() => {
-                            console.log("Major version released");
+                        getAsync("npm version major").then((data) => {
+                            console.log("Major version released", data[0]);
                         });
                     } else if (parsedParameters.minor) {
-                        getAsync("npm version minor").then(() => {
-                            console.log("Minor version released");
+                        getAsync("npm version minor").then((data) => {
+                            console.log("Minor version released", data[0]);
                         });
                     } else {
                         getAsync("npm version patch").then((data) => {
