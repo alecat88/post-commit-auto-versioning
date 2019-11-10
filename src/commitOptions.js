@@ -15,8 +15,12 @@ module.exports = (parsedParameters) => {
 
     for (var property in parsedParameters) {
         if (parsedParameters.hasOwnProperty(property)) {
+            let prefix = "-";
+            if (property.length > 1) {
+                prefix = "--";
+            }
             console.log('property', property);
-            commitOptions.otherOptions += `-${property} ${parsedParameters[property]} `;
+            commitOptions.otherOptions += `${prefix}${property} ${parsedParameters[property]} `;
             // Do things here
         }
     }
