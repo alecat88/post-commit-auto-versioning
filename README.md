@@ -19,8 +19,9 @@ example: ```committing -m "message" --minor```
 example: ```committing -m "message" --major```  
 
 Can also accept all other commit default parameters  
-```git commit [-a | --interactive | --patch] [-s] [-v] [-u<mode>] [--amend]
+```git commit
 	   [--dry-run] [(-c | -C | --fixup | --squash) <commit>]
+       [-a | --interactive | --patch] [-s] [-v] [-u<mode>] [--amend]
 	   [-F <file> | -m <msg>] [--reset-author] [--allow-empty]
 	   [--allow-empty-message] [--no-verify] [-e] [--author=<author>]
 	   [--date=<date>] [--cleanup=<mode>] [--[no-]status]
