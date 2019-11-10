@@ -13,15 +13,18 @@ module.exports = (parsedParameters) => {
         commitOptions.commitMessage = commitMessageLong;
     }
 
+    let parameterNotToConsider = ['m', 'message', '_'];
+
     for (var property in parsedParameters) {
         if (parsedParameters.hasOwnProperty(property)) {
-            let prefix = "-";
-            if (property.length > 1) {
-                prefix = "--";
+            if (!parameterNotToConsider.includes(property)) {
+                let prefix = "-";
+                if (property.length > 1) {
+                    prefix = "--";
+                }
+                console.log('property', property);
+                commitOptions.otherOptions += `${prefix}${property} ${parsedParameters[property]} `;
             }
-            console.log('property', property);
-            commitOptions.otherOptions += `${prefix}${property} ${parsedParameters[property]} `;
-            // Do things here
         }
     }
 
