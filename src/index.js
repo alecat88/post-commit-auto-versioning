@@ -7,6 +7,7 @@ const parsedParameters = minimist(process.argv.slice(2));
 
 let lintCommand =
     typeof parsedParameters.l === "string" ? parsedParameters.l : "node -v"; // -n <componentName> / OPTIONAL
+console.log(lintCommand);
 getAsync(lintCommand).then(() => {
     getAsync("git diff-files").then(data => {
         if (data && data[0].length > 0) {
