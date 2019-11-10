@@ -4,15 +4,15 @@ const cmd = require("node-cmd");
 const Promise = require("bluebird");
 const minimist = require("minimist");
 const commitOptions = require("./commitOptions");
-// import commitOptions from './commitOptions';
+
 const getAsync = Promise.promisify(cmd.get, { multiArgs: true, context: cmd });
 const parsedParameters = minimist(process.argv.slice(2));
-console.log(parsedParameters);
+let steps = 1;
 let lintCommand =
     typeof parsedParameters.l === "string" ? parsedParameters.l : "node -v"; // -n <componentName> / OPTIONAL
-if (lintCommand !== "node -v") console.log(`'1) Linting: ${lintCommand}`);
+if (lintCommand !== "node -v") console.log(`'${steps++}) Linting: ${lintCommand}`);
 getAsync(lintCommand).then(() => {
-    console.log('2) Checking untracked files');
+    console.log(`${steps++} ) Checking untracked files`);
     getAsync("git diff-files").then(data => {
         if (data && data[0].length > 0) {
             console.log(
@@ -22,7 +22,7 @@ getAsync(lintCommand).then(() => {
             let options = commitOptions(parsedParameters);
             if (options.commitMessage !== undefined) {
                 getAsync(`git commit ${options.commitMessage} ${options.otherOptions}`).then(() => {
-                    console.log(`3) committing: git commit ${options.commitMessage} ${options.otherOptions}`);
+                    console.log(`${steps++}) committing: git commit ${options.commitMessage} ${options.otherOptions}`);
                     if (parsedParameters.major) {
                         getAsync("npm version major").then(() => {
                             console.log("Major version released");
