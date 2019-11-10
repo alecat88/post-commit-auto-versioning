@@ -3,7 +3,8 @@
 const cmd = require("node-cmd");
 const Promise = require("bluebird");
 const minimist = require("minimist");
-
+const commitOptions = require("./commitOptions");
+// import commitOptions from './commitOptions';
 const getAsync = Promise.promisify(cmd.get, { multiArgs: true, context: cmd });
 const parsedParameters = minimist(process.argv.slice(2));
 console.log(parsedParameters);
@@ -19,10 +20,10 @@ getAsync(lintCommand).then(() => {
                 "There were linting errors or there are untracked files, stage them and commit again."
             );
         } else {
-            let commitMessage =
-                typeof parsedParameters.m === "string" ? parsedParameters.m : undefined; // -n <componentName> / OPTIONAL
-            if (commitMessage !== undefined) {
-                getAsync(`git commit -m "${commitMessage}"`).then(() => {
+            let options = commitOptions(parsedParameters);
+            console.log('options', options);
+            if (options.commitMessage !== undefined) {
+                getAsync(`git commit -m "${options.commitMessage}"`).then(() => {
                     console.log('3) committing');
                     if (parsedParameters.major) {
                         getAsync("npm version major").then(() => {
@@ -34,7 +35,7 @@ getAsync(lintCommand).then(() => {
                         });
                     } else {
                         getAsync("npm version patch").then(() => {
-                            console.log("version updated");
+                            console.log("Version updated");
                         });
                     }
                 });
