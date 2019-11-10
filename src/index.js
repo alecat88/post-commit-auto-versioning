@@ -4,7 +4,7 @@ const minimist = require("minimist");
 
 const getAsync = Promise.promisify(cmd.get, { multiArgs: true, context: cmd });
 const parsedParameters = minimist(process.argv.slice(2));
-
+console.log(parsedParameters);
 let lintCommand =
     typeof parsedParameters.l === "string" ? parsedParameters.l : "node -v"; // -n <componentName> / OPTIONAL
 console.log(lintCommand);
@@ -17,11 +17,19 @@ getAsync(lintCommand).then(() => {
                 typeof parsedParameters.m === "string" ? parsedParameters.m : undefined; // -n <componentName> / OPTIONAL
             if (commitMessage !== undefined) {
                 getAsync(`git commit -m "${commitMessage}"`).then(() => {
-                    getAsync("npm version patch").then(() => {
-                        getAsync("git add package.json").then(() => {
-                            console.log("version updated");
-                        });
-                    });
+                    let version = typeof parsedParameters.m === "string" ? parsedParameters.m : undefined; // -n <componentName> / OPTIONAL
+                    switch (version) {
+                        case "major":
+                            getAsync("npm version major").then(() => { console.log('Major version released'); });
+                            break;
+                        case "minor":
+                            getAsync("npm version minor").then(() => { console.log('Minor version released'); });
+                            break;
+                        default:
+                            getAsync("npm version patch").then(() => {
+                                console.log("version updated");
+                            });
+                    }
                 });
             } else {
                 console.warn("Missing commit message");
