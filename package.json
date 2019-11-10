@@ -27,8 +27,9 @@
     },
     "homepage": "https://github.com/alecat88/post-commit-auto-versioning#readme",
     "dependencies": {
-        "minimist": "^1.2.0",
         "bluebird": "^3.7.1",
+        "find-package-json": "^1.2.0",
+        "minimist": "^1.2.0",
         "node-cmd": "^3.0.0"
     },
     "devDependencies": {
