@@ -3,6 +3,10 @@ node CLI replacement for git commit command with pre-commit linting and post-com
 
 Use it to upgrade your package.json version after each commit.
 
+## Install:  
+```npm install post-commit-auto-versioning --save-dev"  
+or globally  
+```npm install post-commit-auto-versioning -g"  
 
 ## Usage:
 ```committing``` will replace git commit command  
