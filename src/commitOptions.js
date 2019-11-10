@@ -23,7 +23,7 @@ module.exports = (parsedParameters) => {
                     prefix = "--";
                 }
                 console.log('property2', property);
-                commitOptions.otherOptions += `${prefix}${property} ${parsedParameters[property]} `;
+                commitOptions.otherOptions += `${prefix}${property} "${parsedParameters[property]}"`;
             }
         }
     }
