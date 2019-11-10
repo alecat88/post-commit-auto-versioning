@@ -23,8 +23,8 @@ getAsync(lintCommand).then(() => {
             let options = commitOptions(parsedParameters);
             console.log('options', options);
             if (options.commitMessage !== undefined) {
-                getAsync(`git commit -m "${options.commitMessage}"`).then(() => {
-                    console.log('3) committing');
+                getAsync(`git commit ${options.commitMessage} ${options.otherOptions}`).then(() => {
+                    console.log(`3) committing: git commit ${options.commitMessage} ${options.otherOptions}`);
                     if (parsedParameters.major) {
                         getAsync("npm version major").then(() => {
                             console.log("Major version released");

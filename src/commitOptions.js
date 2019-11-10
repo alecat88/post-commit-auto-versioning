@@ -9,9 +9,9 @@ module.exports = (parsedParameters) => {
     let commitMessageLong =
         typeof parsedParameters.message === "string" ? parsedParameters.message : undefined; // --message <commit message> / OPTIONAL
     if (commitMessage !== undefined) {
-        commitOptions.commitMessage = commitMessage;
+        commitOptions.commitMessage = `-m "${commitMessage}"`;
     } else if (commitMessageLong !== undefined) {
-        commitOptions.commitMessage = commitMessageLong;
+        commitOptions.commitMessage = `-m "${commitMessageLong}"`;
     }
 
     let parameterNotToConsider = ['m', 'message', '_'];
@@ -25,7 +25,14 @@ module.exports = (parsedParameters) => {
                     prefix = "--";
                     value = "";
                 }
-                console.log('property6', property);
+                console.log(property, value);
+                if (value === "true") {
+                    console.log('value', value);
+                    value = "";
+                };
+                value = "";
+                console.log(value);
+                console.log('property7', property);
                 commitOptions.otherOptions += `${prefix}${property} ${value} `;
             }
         }
