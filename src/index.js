@@ -17,18 +17,14 @@ getAsync(lintCommand).then(() => {
                 typeof parsedParameters.m === "string" ? parsedParameters.m : undefined; // -n <componentName> / OPTIONAL
             if (commitMessage !== undefined) {
                 getAsync(`git commit -m "${commitMessage}"`).then(() => {
-                    let version = typeof parsedParameters.m === "string" ? parsedParameters.m : undefined; // -n <componentName> / OPTIONAL
-                    switch (version) {
-                        case "major":
-                            getAsync("npm version major").then(() => { console.log('Major version released'); });
-                            break;
-                        case "minor":
-                            getAsync("npm version minor").then(() => { console.log('Minor version released'); });
-                            break;
-                        default:
-                            getAsync("npm version patch").then(() => {
-                                console.log("version updated");
-                            });
+                    if (parsedParameters.major) {
+                        getAsync("npm version major").then(() => { console.log('Major version released'); });
+                    } else if (parsedParameters.minor) {
+                        getAsync("npm version minor").then(() => { console.log('Minor version released'); });
+                    } else {
+                        getAsync("npm version patch").then(() => {
+                            console.log("version updated");
+                        });
                     }
                 });
             } else {
