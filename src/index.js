@@ -10,18 +10,16 @@ const parsedParameters = minimist(process.argv.slice(2));
 console.log(parsedParameters);
 let lintCommand =
     typeof parsedParameters.l === "string" ? parsedParameters.l : "node -v"; // -n <componentName> / OPTIONAL
-console.log(lintCommand);
+if (lintCommand !== "node -v") console.log(`'1) Linting: ${lintCommand}`);
 getAsync(lintCommand).then(() => {
-    console.log('1) Lint done');
+    console.log('2) Checking untracked files');
     getAsync("git diff-files").then(data => {
-        console.log('2) Check untracked files');
         if (data && data[0].length > 0) {
             console.log(
                 "There were linting errors or there are untracked files, stage them and commit again."
             );
         } else {
             let options = commitOptions(parsedParameters);
-            console.log('options', options);
             if (options.commitMessage !== undefined) {
                 getAsync(`git commit ${options.commitMessage} ${options.otherOptions}`).then(() => {
                     console.log(`3) committing: git commit ${options.commitMessage} ${options.otherOptions}`);
@@ -34,8 +32,8 @@ getAsync(lintCommand).then(() => {
                             console.log("Minor version released");
                         });
                     } else {
-                        getAsync("npm version patch").then(() => {
-                            console.log("Version updated");
+                        getAsync("npm version patch").then((data) => {
+                            console.log("Version updated", data);
                         });
                     }
                 });

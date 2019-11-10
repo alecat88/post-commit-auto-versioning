@@ -23,15 +23,7 @@ module.exports = (parsedParameters) => {
                 let value = parsedParameters[property] === true ? "" : `"${parsedParameters[property]}"`;
                 if (property.length > 1) {
                     prefix = "--";
-                    // value = "";
                 }
-                console.log(property, value);
-                // if (value === "true") {
-                //     console.log('value', value);
-                //     value = "";
-                // };
-                console.log(value);
-                console.log('property10', property);
                 commitOptions.otherOptions += `${prefix}${property} ${value} `;
             }
         }
