@@ -5,7 +5,10 @@
     "main": "./src/index.js",
     "preferGlobal": true,
     "bin": {
-        "committing": "./src/index.js"
+        "committing": "./src/index.js",
+        "prepush": "./src/prepush/index.js",
+        "install-prepush": "./src/prepush/install.js",
+        "remove-prepush": "./src/prepush/remove.js"
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",

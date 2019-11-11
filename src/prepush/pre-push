@@ -1,0 +1,23 @@
+#!/bin/sh
+  
+
+CMD = 
+# Read user input, assign stdin to keyboard
+exec < /dev/tty
+echo &&
+echo "PREPUSH: Select the update"
+echo "1) Patch"
+echo "2) Minor"
+echo "3) Major"
+echo "4) No version change (still push)"
+while read -p "Insert the selection? (1/2/3/4): " yn; do
+    case $yn in
+        [1] ) CMD="npm version patch"; $CMD; wait; echo 'Patch version updated'; exit 0;;
+        [2] ) CMD="npm version minor"; $CMD; wait; echo 'Minor version updated'; exit 0;;
+        [3] ) CMD="npm version major"; $CMD; wait; echo 'Major version updated'; exit 0;;
+       [4] ) echo 'no version updated'; exit 0;;
+        * ) echo "Please write a number" && continue;
+    esac
+done
+
+exec <&-
