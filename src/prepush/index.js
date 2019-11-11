@@ -8,7 +8,7 @@ const version = async() => {
     return await inquirer.prompt([{
         type: 'checkbox',
         name: 'version',
-        message: 'Select the version:',
+        message: 'Select the version: ',
         choices: ['patch', 'minor', 'major'],
         default: ['patch'],
         validate: function(value) {
