@@ -6,9 +6,8 @@
     "preferGlobal": true,
     "bin": {
         "committing": "./src/index.js",
-        "prepush": "./src/prepush/index.js",
-        "install-prepush": "./src/prepush/install.js",
-        "remove-prepush": "./src/prepush/remove.js"
+        "prepush-instal": "./src/prepush/install.js",
+        "prepush-remove": "./src/prepush/remove.js"
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
@@ -32,6 +31,7 @@
     "dependencies": {
         "bluebird": "^3.7.1",
         "find-package-json": "^1.2.0",
+        "inquirer": "^7.0.0",
         "minimist": "^1.2.0",
         "node-cmd": "^3.0.0"
     },
