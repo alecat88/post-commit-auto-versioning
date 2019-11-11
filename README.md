@@ -16,7 +16,7 @@ Use ```committing``` instead of ```git commit```
 
 ex: ```committing -m "message"```
 
-**1: Usage with yours pre-commit lint script:**   
+**1: Usage with your pre-commit lint script:**   
 ex: ```committing -m "message" -l "npm run lintScript && npm run formatScript"```  
 
 Otherwise pre-commit preset can be stored into package.json
