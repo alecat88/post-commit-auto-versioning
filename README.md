@@ -33,7 +33,7 @@ pre-commit preset can also be stored into package.json
 	[--dry-run] [(-c | -C | --fixup | --squash) <commit>]
 	[-a | --interactive | --patch] [-s] [-v] [-u<mode>] [--amend]
 	[-F <file> | -m <msg>] [--reset-author] [--allow-empty]
-	[--allow-empty-message] [--no-verify] [-e] [--author=<author>]
+	[--allow-empty-message] [--no-verify] [-e] [--author=<autho r>]
 	[--date=<date>] [--cleanup=<mode>] [--[no-]status]
 	[-i | -o] [-S[<keyid>]] [--] [<file>…​]
 ```
