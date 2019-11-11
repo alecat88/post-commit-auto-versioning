@@ -16,8 +16,8 @@ Use ```committing``` instead of ```git commit```
 
 ex: ```committing -m "message"```
 
-**1: Usage with pre-commit lint command:**   
-```committing -m "message" -l "npm run lintScript && npm run formatScript"```  
+**1: Usage with yours pre-commit lint script:**   
+ex: ```committing -m "message" -l "npm run lintScript && npm run formatScript"```  
 
 Otherwise pre-commit preset can be stored into package.json
 ```
@@ -29,7 +29,7 @@ Otherwise pre-commit preset can be stored into package.json
 }
 ```
 
-**2: Pre-commit versioning:**
+**2: Pre-commit versioning:**  
 ```committing -m "message" --patch```  
 ```committing -m "message" --minor```   
 ```committing -m "message" --major```     
@@ -37,7 +37,7 @@ Use it to upgrade your package.json version after each commit.
 
 
 ## Pre-push versioning:
-Install prepush file once with ```prepush-install``  
+Install prepush file once with ```prepush-install```  
 Use normal ```git push```. You will be asked a version update before every push.  
 
 
