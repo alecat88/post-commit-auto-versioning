@@ -1,19 +1,24 @@
 # post-commit-auto-versioning
-node CLI replacement for git commit command with pre-commit linting and post-commit auto-versioning  
+node CLI replacement for git commit command with pre-commit linting, post-commit auto-versioning and pre-prush versioning.
+
+This package has 3 tools:
+- pre-commit linting
+- post-commit auto-versioning 
+- pre-prush versioning
 
 Use it to upgrade your package.json version after each commit.
 
 ## Install globally:   
 ```npm install post-commit-auto-versioning -g```  
 
-## Usage:
-```committing``` will replace git commit command  
-```committing -m "message"```
+## Pre-commit:
+```committing``` you'll need to use it instead of ```git commit```
+ex: ```committing -m "message"```
 
-**Usage with pre-commit lint command**   
+**1: Usage with pre-commit lint command:**   
 ```committing -m "message" -l "npm run lintScript && npm run formatScript"```  
 
-pre-commit preset can also be stored into package.json
+A pre-commit preset can also be stored into package.json
 ```
 {
 	...
@@ -23,10 +28,15 @@ pre-commit preset can also be stored into package.json
 }
 ```
 
-**Usage with specific version**  
-```committing -m "message"```  Default behaviour upgrade "patch" number  
+**2: Pre-commit versioning:**
+```committing -m "message" --patch```
 ```committing -m "message" --minor```  
 ```committing -m "message" --major```  
+
+## Pre-push versioning:
+Install prepush file once with ```prepush-install``
+Use normal ```git push```. You will be asked a version update before every push.
+
 
 **Can also accept all other commit default parameters**  
 ```
