@@ -46,9 +46,9 @@ getAsync(lintCommand).then(() => {
                         getAsync("npm version minor").then((data) => {
                             console.log("Minor version released", data[0]);
                         });
-                    } else {
+                    } else if (parsedParameters.patch) {
                         getAsync("npm version patch").then((data) => {
-                            console.log("Version updated", data[0]);
+                            console.log("Patch version released", data[0]);
                         });
                     }
                 });

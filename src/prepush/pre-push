@@ -19,5 +19,5 @@ while read -p "Insert the selection? (1/2/3/4): " yn; do
         * ) echo "Please write a number" && continue;
     esac
 done
-
+echo &&
 exec <&-
