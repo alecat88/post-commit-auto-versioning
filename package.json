@@ -9,7 +9,8 @@
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "format": "prettier --write \"src/**/*.{vue,js,css,scss,json}\""
+        "format": "prettier --write \"src/**/*.{vue,js,css,scss,json}\"",
+        "prepush": "npm version patch"
     },
     "repository": {
         "type": "git",
