@@ -1,6 +1,6 @@
 {
     "name": "post-commit-auto-versioning",
-    "version": "2.3.8",
+    "version": "2.3.9",
     "description": "node CLI replacement for git commit command with pre-commit linting and post-commit auto-versioning",
     "main": "./src/index.js",
     "preferGlobal": true,
