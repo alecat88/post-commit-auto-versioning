@@ -10,6 +10,7 @@ This package has 3 tools:
 ## Install globally:   
 ```npm install post-commit-auto-versioning -g```  
 
+
 ## Pre-commit:
 Use ```committing``` instead of ```git commit```  
 
