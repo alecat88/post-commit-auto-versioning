@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 const inquirer = require('inquirer');
-
+const cmd = require("node-cmd");
 const path = '.git/hooks/pre-push';
 
 
@@ -64,6 +64,7 @@ exec <&-`;
         if (err) {
             return console.log(err);
         }
+        cmd.run('chmod ug+x .git/hooks/pre-push')
         console.log('Prepush hook installed on this repository.');
     });
 }
