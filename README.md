@@ -6,19 +6,19 @@ This package has 3 tools:
 - post-commit auto-versioning 
 - pre-prush versioning
 
-Use it to upgrade your package.json version after each commit.
 
 ## Install globally:   
 ```npm install post-commit-auto-versioning -g```  
 
 ## Pre-commit:
-```committing``` you'll need to use it instead of ```git commit```
+Use ```committing``` instead of ```git commit```  
+
 ex: ```committing -m "message"```
 
 **1: Usage with pre-commit lint command:**   
 ```committing -m "message" -l "npm run lintScript && npm run formatScript"```  
 
-A pre-commit preset can also be stored into package.json
+Otherwise pre-commit preset can be stored into package.json
 ```
 {
 	...
@@ -29,13 +29,15 @@ A pre-commit preset can also be stored into package.json
 ```
 
 **2: Pre-commit versioning:**
-```committing -m "message" --patch```
-```committing -m "message" --minor```  
-```committing -m "message" --major```  
+```committing -m "message" --patch```  
+```committing -m "message" --minor```   
+```committing -m "message" --major```     
+Use it to upgrade your package.json version after each commit.  
+
 
 ## Pre-push versioning:
-Install prepush file once with ```prepush-install``
-Use normal ```git push```. You will be asked a version update before every push.
+Install prepush file once with ```prepush-install``  
+Use normal ```git push```. You will be asked a version update before every push.  
 
 
 **Can also accept all other commit default parameters**  
