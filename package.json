@@ -6,7 +6,7 @@
     "preferGlobal": true,
     "bin": {
         "committing": "./src/index.js",
-        "prepush-instal": "./src/prepush/install.js",
+        "prepush-install": "./src/prepush/install.js",
         "prepush-remove": "./src/prepush/remove.js"
     },
     "scripts": {
