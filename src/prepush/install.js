@@ -22,7 +22,7 @@ const version = async() => {
     }]);
 }
 
-const createPrepushFile = () => {
+const createPrepushFile = (overwrite, path) => {
     // fs.copyFile('src/prepush/pre-push', '.git/hooks/pre-push', (err) => {
     //     if (err) throw err;
     //     console.log('Prepush hook installed on this repository.');
@@ -47,9 +47,20 @@ while read -p "Insert the selection? (1/2/3/4): " yn; do
         * ) echo "Please write a number" && continue;
     esac
 done
-exec <&-`
+exec <&-`;
 
-    fs.writeFile(".git/hooks/pre-push2", prepushFileContent, function(err) {
+    if (overwrite) {
+        try {
+            fs.unlinkSync(path)
+                //file removed
+            console.log('Previous prepush removed');
+        } catch (err) {
+            console.error(err)
+        }
+    }
+
+
+    fs.writeFile(path, prepushFileContent, function(err) {
         if (err) {
             return console.log(err);
         }
@@ -60,11 +71,10 @@ exec <&-`
 try {
     if (fs.existsSync(path)) {
         //file already exists
-        console.log('exist');
         version().then((data) => {
-            if (data.overwrite) createPrepushFile();
+            if (data.overwrite) createPrepushFile(true, path);
         })
-    } else createPrepushFile();
+    } else createPrepushFile(false, path);
 } catch (err) {
     console.error(err)
 }
